@@ -11,6 +11,7 @@ class Settings(BaseSettings):
     quiz_path: Path = Field(default=Path("./data/quiz.json"), alias="QUIZ_PATH")
     public_media_base_url: str = Field(default="/media", alias="PUBLIC_MEDIA_BASE_URL")
     cors_origins: str = Field(default="http://localhost:3000,http://localhost:5173", alias="CORS_ORIGINS")
+    cors_origin_regex: str | None = Field(default=r"https://.*\.vercel\.app", alias="CORS_ORIGIN_REGEX")
 
     @property
     def cors_origin_list(self) -> list[str]:
