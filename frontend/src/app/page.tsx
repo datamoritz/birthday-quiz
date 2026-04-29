@@ -507,7 +507,7 @@ function MasterApp({ showToast }: { showToast: (message: string, tone?: "ok" | "
   async function adminAction(path: string, body?: unknown) {
     setBusy(true);
     try {
-      await apiRequest(path, { token, body });
+      await apiRequest(path, { token, body, method: "POST" });
       await refresh();
       showToast("Master control updated.");
     } catch (error) {
