@@ -1,0 +1,311 @@
+{
+  "title": "Birthday Quiz",
+  "blocks": [
+    {
+      "id": "round_01_airports",
+      "title": "Round 1: Airports Round",
+      "description": "Which major US airport is pictured here?",
+      "questions": [
+        {
+          "id": "airport_01",
+          "type": "text",
+          "prompt": "Which major US airport is pictured here?",
+          "masterNote": "Expected answer: San Francisco International Airport. Accept SFO or San Francisco.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-01-airports/airport-01-sfo.jpg",
+            "alt": "Aerial photo of a major US airport"
+          },
+          "correctAnswer": "San Francisco International Airport (SFO)",
+          "acceptedAnswers": ["SFO", "San Francisco", "San Francisco International", "San Francisco International Airport"]
+        },
+        {
+          "id": "airport_02",
+          "type": "text",
+          "prompt": "Which major US airport is pictured here?",
+          "masterNote": "Expected answer: Daniel K. Inouye International Airport / Honolulu. Accept HNL or Honolulu.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-01-airports/airport-02-hnl.jpg",
+            "alt": "Aerial photo of a major US airport"
+          },
+          "correctAnswer": "Daniel K. Inouye International Airport / Honolulu (HNL)",
+          "acceptedAnswers": ["HNL", "Honolulu", "Honolulu International", "Daniel K. Inouye", "Daniel K. Inouye International Airport"]
+        },
+        {
+          "id": "airport_03",
+          "type": "text",
+          "prompt": "Which major US airport is pictured here?",
+          "masterNote": "Expected answer: Boston Logan International Airport. Accept BOS or Logan.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-01-airports/airport-03-bos.avif",
+            "alt": "Aerial photo of a major US airport"
+          },
+          "correctAnswer": "Boston Logan International Airport (BOS)",
+          "acceptedAnswers": ["BOS", "Boston", "Boston Logan", "Logan", "Logan Airport", "Boston Logan International Airport"]
+        },
+        {
+          "id": "airport_04",
+          "type": "text",
+          "prompt": "Which major US airport is pictured here?",
+          "masterNote": "Expected answer: Chicago O'Hare International Airport. Accept ORD or O'Hare.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-01-airports/airport-04-ord.jpg",
+            "alt": "Interior photo of a major US airport"
+          },
+          "correctAnswer": "Chicago O'Hare International Airport (ORD)",
+          "acceptedAnswers": ["ORD", "O'Hare", "Ohare", "Chicago O'Hare", "Chicago", "Chicago O'Hare International Airport"]
+        },
+        {
+          "id": "airport_05",
+          "type": "text",
+          "prompt": "Which major US airport is pictured here?",
+          "masterNote": "Expected answer: Los Angeles International Airport. Accept LAX or Los Angeles.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-01-airports/airport-05-lax.avif",
+            "alt": "Photo of a major US airport control tower"
+          },
+          "correctAnswer": "Los Angeles International Airport (LAX)",
+          "acceptedAnswers": ["LAX", "Los Angeles", "Los Angeles International", "Los Angeles International Airport"]
+        }
+      ]
+    },
+    {
+      "id": "round_02_general",
+      "title": "Round 2: General Questions Round",
+      "description": "General questions with no images.",
+      "questions": [
+        {
+          "id": "general_01",
+          "type": "multiple_choice",
+          "prompt": "Which of these is NOT a German scientist?",
+          "options": ["Wilhelm Röntgen", "Jan-Lukas Tirpitz", "Erwin Schrödinger"],
+          "masterNote": "Correct because Schrödinger was Austrian.",
+          "correctAnswer": "Erwin Schrödinger",
+          "acceptedAnswers": ["Erwin Schrödinger", "Schrodinger", "Erwin Schrodinger"]
+        },
+        {
+          "id": "general_02",
+          "type": "multiple_choice",
+          "prompt": "Which element on Earth came entirely from ancient cosmic collisions, not from stellar fusion?",
+          "options": ["Gold (Au)", "Iron (Fe)", "Silicon (Si)", "Oxygen (O)"],
+          "masterNote": "Expected answer: Gold. Heavy r-process elements are associated with neutron-star mergers and similar cosmic collisions.",
+          "correctAnswer": "Gold (Au)",
+          "acceptedAnswers": ["Gold", "Au", "Gold (Au)"]
+        },
+        {
+          "id": "general_03",
+          "type": "multiple_choice",
+          "prompt": "Which of these is a fictional German TV character known for being perpetually grumpy and depressed?",
+          "options": ["A) Pumuckl", "B) Bernd das Brot", "C) Pettersson", "D) Wickie"],
+          "masterNote": "Expected answer: Bernd das Brot.",
+          "correctAnswer": "B) Bernd das Brot",
+          "acceptedAnswers": ["Bernd das Brot", "B", "B) Bernd das Brot"]
+        },
+        {
+          "id": "general_04",
+          "type": "multiple_choice",
+          "prompt": "Which of these is NOT a prime number?",
+          "options": ["A) 97", "B) 91", "C) 89", "D) 79"],
+          "masterNote": "91 = 7 × 13.",
+          "correctAnswer": "B) 91",
+          "acceptedAnswers": ["91", "B", "B) 91"]
+        },
+        {
+          "id": "general_05",
+          "type": "text",
+          "prompt": "Order these by number of ski lifts, from fewest to most: Big Sky, Breckenridge, Arlberg, Les Trois Vallees, Garmisch-Partenkirchen.",
+          "masterNote": "Fewest to most: Garmisch-Partenkirchen, Breckenridge, Big Sky, Arlberg, Les Trois Vallees. Approx counts used: 18, 35, 40, 85, 159-161.",
+          "correctAnswer": "Garmisch-Partenkirchen → Breckenridge → Big Sky → Arlberg → Les Trois Vallees",
+          "acceptedAnswers": [
+            "Garmisch-Partenkirchen, Breckenridge, Big Sky, Arlberg, Les Trois Vallees",
+            "Garmisch Partenkirchen, Breckenridge, Big Sky, Arlberg, Les Trois Vallees",
+            "Garmisch, Breckenridge, Big Sky, Arlberg, Les Trois Vallees"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "music",
+      "title": "Round 3: Music Round",
+      "description": "Guess the song and artist. Songs are played outside the app.",
+      "questions": [
+        {
+          "id": "music_01",
+          "type": "song_artist",
+          "prompt": "Guess the song and artist.",
+          "masterNote": "Taylor – Ready for it",
+          "correctAnswer": "Taylor – Ready for it"
+        },
+        {
+          "id": "music_02",
+          "type": "song_artist",
+          "prompt": "Guess the song and artist.",
+          "masterNote": "Noah Kane – The Great Divide",
+          "correctAnswer": "Noah Kane – The Great Divide"
+        },
+        {
+          "id": "music_03",
+          "type": "song_artist",
+          "prompt": "Guess the song and artist.",
+          "masterNote": "Cage the Elephant – Cigarette Daydreams",
+          "correctAnswer": "Cage the Elephant – Cigarette Daydreams"
+        },
+        {
+          "id": "music_04",
+          "type": "song_artist",
+          "prompt": "Guess the song and artist.",
+          "masterNote": "Elvis Presley — Suspicous Minds",
+          "correctAnswer": "Elvis Presley — Suspicous Minds"
+        }
+      ]
+    },
+    {
+      "id": "round_04_tv",
+      "title": "Round 4: TV Round",
+      "description": "Name the show from its title sequence.",
+      "questions": [
+        {
+          "id": "tv_01",
+          "type": "text",
+          "prompt": "Name the show from its title sequence.",
+          "masterNote": "Add expected answer here.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-04-tv/image6.png",
+            "alt": "TV title sequence still"
+          },
+          "correctAnswer": ""
+        },
+        {
+          "id": "tv_02",
+          "type": "text",
+          "prompt": "Name the show from its title sequence.",
+          "masterNote": "Add expected answer here.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-04-tv/image7.png",
+            "alt": "TV title sequence still"
+          },
+          "correctAnswer": ""
+        },
+        {
+          "id": "tv_03",
+          "type": "text",
+          "prompt": "Name the show from its title sequence.",
+          "masterNote": "Add expected answer here.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-04-tv/image8.png",
+            "alt": "TV title sequence still"
+          },
+          "correctAnswer": ""
+        },
+        {
+          "id": "tv_04",
+          "type": "text",
+          "prompt": "Name the show from its title sequence.",
+          "masterNote": "Add expected answer here.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-04-tv/image9.png",
+            "alt": "TV title sequence still"
+          },
+          "correctAnswer": ""
+        },
+        {
+          "id": "tv_05",
+          "type": "text",
+          "prompt": "Name the show from its title sequence.",
+          "masterNote": "Add expected answer here.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/round-04-tv/image10.png",
+            "alt": "TV title sequence still"
+          },
+          "correctAnswer": ""
+        }
+      ]
+    },
+    {
+      "id": "round_05_movies",
+      "title": "Round 5: Movie Round",
+      "description": "Listen closely to this iconic scene and name the movie!",
+      "questions": [
+        {
+          "id": "movie_01",
+          "type": "text",
+          "prompt": "Listen closely to this iconic scene and name the movie!",
+          "masterNote": "Devil Wears Prada — And if you don’t have the Harry Potter book by then, don’t even bother coming back!",
+          "correctAnswer": "The Devil Wears Prada",
+          "acceptedAnswers": ["The Devil Wears Prada", "Devil Wears Prada"]
+        },
+        {
+          "id": "movie_02",
+          "type": "text",
+          "prompt": "Listen closely to this iconic scene and name the movie!",
+          "masterNote": "Matrix, shooting scene",
+          "correctAnswer": "The Matrix",
+          "acceptedAnswers": ["The Matrix", "Matrix"]
+        },
+        {
+          "id": "movie_03",
+          "type": "text",
+          "prompt": "Listen closely to this iconic scene and name the movie!",
+          "masterNote": "Mean Girls — Stop trying to make fetch happen, it’s not going to happen!",
+          "correctAnswer": "Mean Girls",
+          "acceptedAnswers": ["Mean Girls"]
+        },
+        {
+          "id": "movie_04",
+          "type": "text",
+          "prompt": "Listen closely to this iconic scene and name the movie!",
+          "masterNote": "Airplane",
+          "correctAnswer": "Airplane!",
+          "acceptedAnswers": ["Airplane!", "Airplane"]
+        },
+        {
+          "id": "movie_05",
+          "type": "text",
+          "prompt": "Listen closely to this iconic scene and name the movie! !!Bonus points!! Who can best move like the contestants in this movie?",
+          "masterNote": "Pulp Fiction — Never Can Tell. Bonus points: Who can best move like the contestants in this movie?",
+          "correctAnswer": "Pulp Fiction",
+          "acceptedAnswers": ["Pulp Fiction"]
+        }
+      ]
+    },
+    {
+      "id": "pictures",
+      "title": "Picture Round",
+      "questions": [
+        {
+          "id": "picture_1",
+          "type": "text",
+          "prompt": "Where was this photo taken?",
+          "masterNote": "Accept city or landmark if the team is close.",
+          "media": {
+            "type": "image",
+            "src": "/media/images/location-1.jpg",
+            "alt": "Location photo"
+          },
+          "correctAnswer": "Example Location"
+        },
+        {
+          "id": "picture_2",
+          "type": "multiple_choice",
+          "prompt": "Which city is shown here?",
+          "options": ["Berlin", "Lisbon", "Prague", "Vienna"],
+          "media": {
+            "type": "image",
+            "src": "/media/images/city-1.jpg",
+            "alt": "City photo"
+          },
+          "correctAnswer": "Lisbon"
+        }
+      ]
+    }
+  ]
+}
