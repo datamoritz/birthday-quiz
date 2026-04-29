@@ -504,12 +504,6 @@ function MasterApp({ showToast }: { showToast: (message: string, tone?: "ok" | "
     return () => window.clearInterval(timer);
   }, [refresh, token]);
 
-  function saveToken(event: FormEvent) {
-    event.preventDefault();
-    window.localStorage.setItem(ADMIN_TOKEN_KEY, token);
-    refresh();
-  }
-
   async function adminAction(path: string, body?: unknown) {
     setBusy(true);
     try {
@@ -542,29 +536,15 @@ function MasterApp({ showToast }: { showToast: (message: string, tone?: "ok" | "
               <h1>Master Control</h1>
               <span className="tiny">Open blocks, release questions, close answers, and submit scores.</span>
             </div>
-            <button className="icon-button" onClick={refresh} title="Refresh" type="button">
-              <RefreshCw size={17} />
-            </button>
-          </div>
-          <form className="form-grid" onSubmit={saveToken}>
-            <div className="field">
-              <label htmlFor="adminToken">Admin token</label>
-              <input
-                id="adminToken"
-                className="input mono"
-                value={token}
-                onChange={(event) => setToken(event.target.value)}
-                placeholder="Bearer token"
-                required
-              />
-            </div>
-            <div className="field">
-              <label>&nbsp;</label>
-              <button className="button" type="submit">
-                <Shield size={17} /> Connect
+            <div className="actions">
+              <button className="icon-button" onClick={refresh} title="Refresh" type="button">
+                <RefreshCw size={17} />
+              </button>
+              <button className="button danger" disabled={busy} onClick={() => adminAction("/api/admin/reset")} type="button">
+                <X size={17} /> Reset entire game
               </button>
             </div>
-          </form>
+          </div>
         </div>
 
         {adminState ? (
@@ -579,9 +559,6 @@ function MasterApp({ showToast }: { showToast: (message: string, tone?: "ok" | "
                     <span className="badge">{adminState.teams.length} teams</span>
                   </div>
                 </div>
-                <button className="button danger" disabled={busy} onClick={() => adminAction("/api/admin/reset")} type="button">
-                  <X size={17} /> Reset
-                </button>
               </div>
 
               <div className="form-grid">
@@ -623,7 +600,7 @@ function MasterApp({ showToast }: { showToast: (message: string, tone?: "ok" | "
             {review ? <ReviewPanel review={review} token={token} onDone={refresh} showToast={showToast} /> : null}
           </>
         ) : (
-          <div className="empty">Enter the admin token to load the master view.</div>
+          <div className="empty">Connecting to the master controls...</div>
         )}
       </div>
       <Scoreboard items={adminState?.scoreboard || []} />
