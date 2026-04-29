@@ -445,6 +445,46 @@ button:disabled {
   padding: 20px;
 }
 
+.finish-screen {
+  min-height: 70vh;
+  display: grid;
+  align-content: center;
+  gap: 24px;
+  padding: 32px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.finish-screen h1 {
+  margin: 12px 0 8px;
+  font-size: clamp(34px, 8vw, 78px);
+  line-height: 0.95;
+}
+
+.finish-screen p {
+  max-width: 720px;
+  color: var(--muted);
+  font-size: 18px;
+}
+
+.finish-board {
+  display: grid;
+  gap: 8px;
+}
+
+.finish-row {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  min-height: 58px;
+  padding: 0 16px;
+  background: var(--panel-strong);
+  border: 1px solid var(--line);
+  font-size: 20px;
+}
+
 .toast {
   position: fixed;
   right: 18px;

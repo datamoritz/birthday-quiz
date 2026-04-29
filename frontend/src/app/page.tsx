@@ -126,6 +126,28 @@ function Scoreboard({ items }: { items: ScoreboardItem[] }) {
   );
 }
 
+function FinishScreen({ items }: { items: ScoreboardItem[] }) {
+  const winner = items[0];
+  return (
+    <div className="finish-screen">
+      <div>
+        <span className="badge success">Final leaderboard</span>
+        <h1>Congratulations{winner ? `, ${winner.name}!` : "!"}</h1>
+        <p>That is the final score. Beautiful work, chaotic brilliance, acceptable levels of shouting.</p>
+      </div>
+      <div className="finish-board">
+        {items.map((team, index) => (
+          <div className="finish-row" key={team.id}>
+            <span className="mono">{index + 1}</span>
+            <strong>{team.name}</strong>
+            <span className="mono">{team.score}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
 function TeamApp({ showToast }: { showToast: (message: string, tone?: "ok" | "error") => void }) {
   const [session, setSession] = useState<TeamSession | null>(null);
   const [state, setState] = useState<TeamState | null>(null);
@@ -194,6 +216,8 @@ function TeamApp({ showToast }: { showToast: (message: string, tone?: "ok" | "er
       <div className="stack">
         {!session ? (
           <TeamEntry loading={loading} onCreate={createTeam} onJoin={joinTeam} />
+        ) : state?.game.phase === "finished" ? (
+          <FinishScreen items={state.scoreboard} />
         ) : (
           <TeamRoom session={session} state={state} onRefresh={refresh} onLeave={leaveTeam} showToast={showToast} />
         )}
@@ -597,7 +621,16 @@ function MasterApp({ showToast }: { showToast: (message: string, tone?: "ok" | "
             </div>
 
             <VisibleQuestions state={adminState} />
-            {review ? <ReviewPanel review={review} token={token} onDone={refresh} showToast={showToast} /> : null}
+            {adminState.game.phase === "finished" ? <FinishScreen items={adminState.scoreboard} /> : null}
+            {review && adminState.game.phase !== "finished" ? (
+              <ReviewPanel
+                isFinalBlock={review.block.id === "round_05_movies"}
+                review={review}
+                token={token}
+                onDone={refresh}
+                showToast={showToast}
+              />
+            ) : null}
           </>
         ) : (
           <div className="empty">Connecting to the master controls...</div>
@@ -642,11 +675,13 @@ function VisibleQuestions({ state }: { state: AdminState }) {
 }
 
 function ReviewPanel({
+  isFinalBlock,
   review,
   token,
   onDone,
   showToast,
 }: {
+  isFinalBlock: boolean;
   review: ReviewState;
   token: string;
   onDone: () => void;
@@ -662,13 +697,29 @@ function ReviewPanel({
     return map;
   }, [review]);
   const [checks, setChecks] = useState<Record<string, boolean>>(initial);
+  const [dirtyKeys, setDirtyKeys] = useState<Set<string>>(new Set());
   const [saving, setSaving] = useState(false);
 
-  useEffect(() => setChecks(initial), [initial]);
+  useEffect(() => {
+    setChecks((current) => {
+      const merged = { ...initial };
+      for (const key of dirtyKeys) {
+        if (key in current) {
+          merged[key] = current[key];
+        }
+      }
+      return merged;
+    });
+  }, [dirtyKeys, initial]);
 
   function toggle(teamId: string, questionId: string) {
     const key = `${teamId}:${questionId}`;
     setChecks((current) => ({ ...current, [key]: !current[key] }));
+    setDirtyKeys((current) => {
+      const next = new Set(current);
+      next.add(key);
+      return next;
+    });
   }
 
   async function submitScores() {
@@ -687,7 +738,15 @@ function ReviewPanel({
           ),
         },
       });
+      if (isFinalBlock) {
+        await apiRequest("/api/admin/set-phase", {
+          token,
+          method: "POST",
+          body: { phase: "finished" },
+        });
+      }
       showToast("Scores submitted.");
+      setDirtyKeys(new Set());
       onDone();
     } catch (error) {
       showToast(error instanceof Error ? error.message : "Could not submit scores", "error");
@@ -704,7 +763,7 @@ function ReviewPanel({
           <span className="tiny">Click checkmarks, then submit scores for this block.</span>
         </div>
         <button className="button" disabled={saving} onClick={submitScores} type="button">
-          <Play size={17} /> Submit scores
+          <Play size={17} /> {isFinalBlock ? "Submit final scores" : "Submit scores"}
         </button>
       </div>
 

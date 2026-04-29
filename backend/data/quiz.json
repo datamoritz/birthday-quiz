@@ -276,36 +276,6 @@
           "acceptedAnswers": ["Pulp Fiction"]
         }
       ]
-    },
-    {
-      "id": "pictures",
-      "title": "Picture Round",
-      "questions": [
-        {
-          "id": "picture_1",
-          "type": "text",
-          "prompt": "Where was this photo taken?",
-          "masterNote": "Accept city or landmark if the team is close.",
-          "media": {
-            "type": "image",
-            "src": "/media/images/location-1.jpg",
-            "alt": "Location photo"
-          },
-          "correctAnswer": "Example Location"
-        },
-        {
-          "id": "picture_2",
-          "type": "multiple_choice",
-          "prompt": "Which city is shown here?",
-          "options": ["Berlin", "Lisbon", "Prague", "Vienna"],
-          "media": {
-            "type": "image",
-            "src": "/media/images/city-1.jpg",
-            "alt": "City photo"
-          },
-          "correctAnswer": "Lisbon"
-        }
-      ]
     }
   ]
 }
